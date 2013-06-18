@@ -18,44 +18,52 @@
 
 	<ui:define name="content">
 		<style>
-.ui-widget {
-	font-size: 80% !important;
-	font-size: 13px !important;
-}
-
-.ui-fieldset-legend {
-	font-family: Verdana, Arial, sans-serif;
-	font-size: 80%!important;
-	font-size: 13px;
-	width: 120px;
-	height: 25px;
-}
-
-.ui-widget-content {
-	width: 400px;
-}
-
-.ui-selectonemenu-items{
-	width: 90%;
-}
-.ui-selectonemenu-panel{
-	width: 10%;
-}
-
-</style>
-
-		<h:form id="formulario">			
-			<p:messages id="msg" autoUpdate="true" closable="true" />
+			.ui-widget {
+				font-size: 80% !important;
+				font-size: 13px !important;
+			}
 			
+			.ui-fieldset-legend {
+				font-family: Verdana, Arial, sans-serif;
+				font-size: 80% !important;
+				font-size: 13px;
+				width: 120px;
+				height: 25px;
+			}
+			
+			.ui-widget-content {
+				width: 400px;
+			}
+			
+			.ui-selectonemenu-items {
+				width: 90%;
+			}
+			
+			.ui-selectonemenu-panel {
+				width: 10%;
+			}
+		</style>
+
+		<h:form id="formulario">
+			<p:messages id="msg" autoUpdate="true" closable="true" />
+
 			<p:fieldset>
 				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 					<p:outputLabel for="nome" value="Nome" />
 					<p:inputText id="nome" required="true"
 						value="#{usuarioMB.pessoa.nome}" />
 
+<<<<<<< HEAD
 					<p:outputLabel value="E-mail" for="email"/>			
 					<p:inputText id="email" value="#{usuarioMB.pessoa.email}" size="30" maxlength="30" required="true" label="E-mail">
 						<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+=======
+					<p:outputLabel value="E-mail" for="email" />
+					<p:inputText id="email" value="#{usuarioMB.usuario.pessoa.email}"
+						size="30" maxlength="30" required="true" label="E-mail">
+						<f:validateRegex
+							pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+>>>>>>> 20e3a27fc26c89435dcbf60a77edcc9a39d014ba
 					</p:inputText>
 
 					<p:outputLabel for="Sexo" value="Sexo" />
@@ -102,8 +110,13 @@
 						value="#{usuarioMB.endereco.cidade}" />
 
 					<p:outputLabel for="cep" value="CEP" />
+<<<<<<< HEAD
 					<p:inputText id="cep" required="true"
 						value="#{usuarioMB.endereco.cep}" />
+=======
+					<p:inputMask id="cep" required="true"
+						value="#{usuarioMB.usuario.pessoa.endereco.cep}" mask="99999-999" />
+>>>>>>> 20e3a27fc26c89435dcbf60a77edcc9a39d014ba
 
 					<p:outputLabel for="estado" value="Estado" />
 					<p:selectOneMenu id="estado" required="true"
@@ -143,11 +156,14 @@
 					<p:inputText value="#{usuarioMB.endereco.pais}" />
 				</h:panelGrid>
 			</p:fieldset>
-			<br/>
-			<h:commandButton value="Gravar" actionListener="#{usuarioMB.cadastrarMulher}" styleClass="btn btn-small btn-success"/>
+			<br />
+			<h:commandButton value="Gravar"
+				actionListener="#{usuarioMB.cadastrarMulher}"
+				styleClass="btn btn-small btn-success" />
 		</h:form>
 		<h:form>
-			<h:commandButton value="Voltar" action="#{controllerMB.voltar}" styleClass="btn btn-small btn-danger"/>
+			<h:commandButton value="Voltar" action="#{controllerMB.voltar}"
+				styleClass="btn btn-small btn-danger" />
 		</h:form>
 	</ui:define>
 </ui:composition>

@@ -231,6 +231,7 @@ public class UsuarioMB implements Serializable{
 	
 	public String logout() throws IOException{
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("usuario");
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("permissao");
 		return "principal";
 	}
 	public String relembraSenha(){
@@ -261,7 +262,7 @@ public class UsuarioMB implements Serializable{
 				return "relembraSenha";
 			}
 		}
-		JSFMensageiro.info("Sua senha serï¿½ enviada em instantes. Acesse seu e-mail para visualizar");
+		JSFMensageiro.info("Sua senha será enviada em instantes. Acesse seu e-mail para visualizar");
 		this.email = new String();
 		return "relembraUsario";
 		

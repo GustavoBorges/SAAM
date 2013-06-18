@@ -115,7 +115,6 @@
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
-	
 	<!-- Páginas de Erro -->
 	
 	<!-- 
