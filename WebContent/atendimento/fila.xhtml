@@ -10,20 +10,7 @@
 <ui:composition template="/template/common/layout.xhtml">
 	<ui:param name="title" value="Fila de Atendimento" />
  	<ui:define name="content">
- 	
- 	<h:form id="form">					
-		<p:commandButton id="sair" value="Sair" onclick="confirmation.show()" type="button"/>
-	
-		<p:confirmDialog id="confirmDialog" message="Tem certeza que deseja sair?"
-					header="Sair do Modo Atendimento de Chat" severity="alert"
-					widgetVar="confirmation">
-			<p:commandButton id="confirm" value="Sim" update=":form" oncomplete="confirmation.hide()" action="#{atendimentoMB.sairAtendimento}" />
-			<p:commandButton id="decline" value="Não" onclick="confirmation.hide()" type="button" />
-		</p:confirmDialog>
-	</h:form> 	 	
  	 	
- 	 	
-
 	<h:form rendered="#{sessionScope.area.id == '1'?true:false}"> 	 
 	 
 	 	<h:dataTable id="txt_count" value="#{atendimentoMB.filaJ.itens}" var="item" >
@@ -75,8 +62,6 @@
 		<h:commandButton class="btn" value="Chamar Próximo" action="#{atendimentoMB.chamarFila}"/>
 	</h:form>
 	
-	
-
  	
  </ui:define>
 </ui:composition>

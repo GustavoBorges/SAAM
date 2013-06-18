@@ -7,19 +7,18 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/template/common/layout.xhtml">
-		<ui:param name="title" value="Solicitar Atendimento" />
-		<ui:define name="content">
-
-			<h:panelGrid columns="2">
-				<h:form>
-					<h:commandButton action="#{atendimentoMB.iniciarAtendimento}"
-						styleClass="btn btn-inverse" value="Inciar Atendimento" />
-				</h:form>
-
-			</h:panelGrid>
-		</ui:define>
-	</ui:composition>
+<ui:composition template="/template/common/layout.xhtml">
+	<ui:param name="title" value="Solicitar Atendimento" />
+ 	<ui:define name="content">
+ 	
+ 	<h:panelGrid columns="2">
+	 	<h:form>
+	        <h:commandButton action="#{atendimentoMB.iniciarAtendimento}" styleClass="btn btn-inverse" value="Inciar Atendimento"/>
+	 	</h:form>
+ 	
+	</h:panelGrid>
+ </ui:define>
+</ui:composition>
 
 </h:body>
 

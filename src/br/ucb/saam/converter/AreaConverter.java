@@ -8,7 +8,7 @@ import javax.faces.convert.FacesConverter;
 import br.ucb.saam.beans.AreaBean;
 import br.ucb.saam.dao.AreaDAO;
 
-@FacesConverter(forClass=AreaBean.class)
+@FacesConverter(value="areaConverter", forClass=AreaBean.class)
 public class AreaConverter implements Converter{
 
 	@Override

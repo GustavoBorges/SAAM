@@ -1,4 +1,9 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/br/ucb/saam/beans/UsuarioBean.java=UTF-8
 encoding//src/br/ucb/saam/managedbeans/UsuarioMB.java=UTF-8
 encoding//src/br/ucb/saam/managedbeans/VoluntarioMB.java=UTF-8
+=======
+encoding//src/br/ucb/saam/beans/MensagemBean.java=UTF-8
+encoding//src/br/ucb/saam/util/PermissaoFilter.java=UTF-8
+>>>>>>> 442de497daa5a0b47a10a4331bfce8c2165b293c

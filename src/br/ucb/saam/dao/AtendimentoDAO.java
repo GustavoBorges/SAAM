@@ -7,7 +7,6 @@ import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import br.ucb.saam.beans.AreaBean;
 import br.ucb.saam.beans.AtendimentoBean;
 import br.ucb.saam.beans.UsuarioBean;
 import br.ucb.saam.factory.ConnectionFactory;
@@ -32,15 +31,5 @@ public class AtendimentoDAO extends GenericDAO<AtendimentoBean>{
 		criteria.add(Restrictions.like("atendido", u)).setFetchMode("mensagens", FetchMode.SELECT);
 		return criteria.list();
 	}
-	
 
-	@SuppressWarnings("unchecked")
-	public List<AtendimentoBean> buscarNaoAtendido(UsuarioBean u,AreaBean a){
-		this.session = ConnectionFactory.getSession();
-		Criteria criteria = this.session.createCriteria(AtendimentoBean.class);
-		criteria.add(Restrictions.eq("atendente", null));
-		criteria.add(Restrictions.eq("area",a));
-		return criteria.list();
-	}
-	
 }

@@ -5,6 +5,76 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
     version="2.1">
+	<navigation-rule>
+		<display-name>home.xhtml</display-name>
+		<from-view-id>/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{menuMB.navegar}</from-action>
+			<from-outcome>solicitar</from-outcome>
+			<to-view-id>/atendimento/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>home.xhtml</display-name>
+		<from-view-id>/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{menuMB.navegar}</from-action>
+			<from-outcome>iniciarAtendimento</from-outcome>
+			<to-view-id>/atendimento/iniciarAtendimento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>home.xhtml</display-name>
+		<from-view-id>/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{menuMB.navegar}</from-action>
+			<from-outcome>perfil</from-outcome>
+			<to-view-id>/perfil/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>home.xhtml</display-name>
+		<from-view-id>/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{menuMB.navegar}</from-action>
+			<from-outcome>usuario</from-outcome>
+			<to-view-id>/usuario/manterUsuarios.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>home.xhtml</display-name>
+		<from-view-id>/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{menuMB.navegar}</from-action>
+			<from-outcome>perguntaFrequente</from-outcome>
+			<to-view-id>/perguntaFrequente/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>home.xhtml</display-name>
+		<from-view-id>/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{menuMB.navegar}</from-action>
+			<from-outcome>voluntario</from-outcome>
+			<to-view-id>/voluntario/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>home.xhtml</display-name>
+		<from-view-id>/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{menuMB.navegar}</from-action>
+			<from-outcome>naoProgramado</from-outcome>
+			<to-view-id>/naoProgramado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 
 
 </faces-config>

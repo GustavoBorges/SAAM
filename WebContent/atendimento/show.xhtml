@@ -9,19 +9,15 @@
 
 <h:body>
 	<ui:composition template="/template/common/layout.xhtml">
-		<ui:param name="title" value="Detalhes do Atendimento" />
+		<ui:param name="title" value="Atendimento" />
 		<ui:define name="content">
 		
 	
 	<h:outputText value="Data Atendimento: "/>
-	<h:outputText value="#{relatorioMB.atendimento.dataInicio}">
-		<f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="America/Sao_Paulo"/>
-	</h:outputText>
+	<h:outputText value="#{relatorioMB.atendimento.dataInicio}"/>
 	<br />
 	<h:outputText value="Data Atendimento: "/>
-	<h:outputText value="#{relatorioMB.atendimento.dataFim}">
-		<f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="America/Sao_Paulo"/>
-	</h:outputText>
+	<h:outputText value="#{relatorioMB.atendimento.dataFim}"/>
 	<br />
 	<h:outputText value="Area: "/>
 	<h:outputText value="#{relatorioMB.atendimento.area.nome}"/>
@@ -30,21 +26,24 @@
 	<h:outputText value="#{relatorioMB.atendimento.tipoAtendimento.nome}"/>
 	<br />
 	<h:outputText value="Atendente: "/>
-	<h:outputText value="#{relatorioMB.atendimento.atendente.pessoa.nome}"/>
+	<h:outputText value="#{relatorioMB.atendimento.atendente.nome}"/>
 	<br />
 	<h:outputText value="Atendido: "/>
-	<h:outputText value="#{relatorioMB.atendimento.atendido.pessoa.nome}"/>
+	<h:outputText value="#{relatorioMB.atendimento.atendido.nome}"/>
 
 	<p:separator/>
 	
+	<p:panelGrid columns="2">
 	<h:outputText value="Mensagens "/>
-	<p:outputPanel layout="block" styleClass="ui-corner-all ui-widget-content chatlogs">
-		<h:dataTable value="#{relatorioMB.atendimento.mensagens}" var="item" styleClass="semBorda">
-				<h:column>
-					<h:outputText value="#{item.usuario.pessoa.nome} : #{item.texto}"/>
-				</h:column>
-		</h:dataTable>
-	</p:outputPanel>
+	<h:dataTable value="#{relatorioMB.atendimento.mensagens}" var="item">
+			<h:column>
+				<h:outputText value="#{item.usuario.nome}"/>
+			</h:column>
+			<h:column>
+				<h:outputText value="#{item.texto}"/>
+			</h:column>
+	</h:dataTable>
+	</p:panelGrid>
 	<p:separator/>
 
 	<h:form>

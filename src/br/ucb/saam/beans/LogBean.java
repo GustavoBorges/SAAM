@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /** Classe para objetos do tipo Log, onde serão contidos, valores e métodos para o mesmo.
  *  Representa logs de operação realizadas na aplicação.
@@ -33,7 +31,6 @@ public class LogBean implements Serializable{
 	private int id;
 	
 	@Column(name="DATA")
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date data;
 	
 	@Column(name="MENSAGEM")

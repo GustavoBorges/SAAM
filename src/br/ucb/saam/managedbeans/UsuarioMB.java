@@ -2,9 +2,7 @@ package br.ucb.saam.managedbeans;
 
 import java.io.IOException;
 import java.io.Serializable;
-
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -16,20 +14,16 @@ import org.apache.commons.mail.EmailException;
 import br.ucb.saam.beans.AreaBean;
 import br.ucb.saam.beans.EnderecoBean;
 import br.ucb.saam.beans.FuncionalidadeBean;
-import br.ucb.saam.beans.LogBean;
 import br.ucb.saam.beans.PaginaBean;
 import br.ucb.saam.beans.PerfilBean;
 import br.ucb.saam.beans.PessoaBean;
-import br.ucb.saam.beans.TipoLogBean;
 import br.ucb.saam.beans.UsuarioBean;
 import br.ucb.saam.beans.VoluntarioBean;
 import br.ucb.saam.dao.AreaDAO;
 import br.ucb.saam.dao.EnderecoDAO;
-import br.ucb.saam.dao.LogDAO;
 import br.ucb.saam.dao.PaginaDAO;
 import br.ucb.saam.dao.PerfilDAO;
 import br.ucb.saam.dao.PessoaDAO;
-import br.ucb.saam.dao.TipoLogDAO;
 import br.ucb.saam.dao.UsuarioDAO;
 import br.ucb.saam.dao.VoluntarioDAO;
 import br.ucb.saam.util.EmailUtils;
@@ -47,24 +41,22 @@ public class UsuarioMB implements Serializable{
 
 	private PessoaBean pessoa;
 	private PessoaDAO pessoaDAO;
+
 	private EnderecoBean endereco;
 	private EnderecoDAO enderecoDAO;
+
 	private List<UsuarioBean> usuarios;
 	private String email;
 	private PerfilDAO perfilDAO;
-	
-	private List<String> paginasPermitidas;
-
 	private List<PerfilBean> perfis;
 	private PerfilBean perfil;
 	private List<UsuarioBean> resultado;
 	private VoluntarioBean voluntario;
 	private List<AreaBean> areas;
+
+
 	
-	private LogBean log;
-	private TipoLogBean tipoLog;
-	private LogDAO logDao;
-	private TipoLogDAO tipoLogDao;
+	private List<String> paginasPermitidas;
 
 
 
@@ -81,17 +73,20 @@ public class UsuarioMB implements Serializable{
 		this.pessoaDAO = new PessoaDAO();
 		this.enderecoDAO = new EnderecoDAO();
 		this.perfilDAO = new PerfilDAO();
-
-		this.paginasPermitidas = new ArrayList<String>();
-		
 		this.perfil = new PerfilBean();
 		this.resultado = new ArrayList<UsuarioBean>();
 		this.areas = new ArrayList<AreaBean>();
+<<<<<<< HEAD
 		
 		this.logDao = new LogDAO();
 		this.tipoLogDao = new TipoLogDAO();
 		this.log = new LogBean();
 		this.tipoLog = new TipoLogBean();
+=======
+
+		this.paginasPermitidas = new ArrayList<String>();
+		
+>>>>>>> 442de497daa5a0b47a10a4331bfce8c2165b293c
 	}
 
 
@@ -187,7 +182,11 @@ public class UsuarioMB implements Serializable{
 	 * @return String - P���gina que ser��� redirecionada.
 	 */
 	public String login(){
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 442de497daa5a0b47a10a4331bfce8c2165b293c
 		//Busca a lista de usu�rios gravados no banco de dados
 		//getListUsuarios();
 		
@@ -210,6 +209,7 @@ public class UsuarioMB implements Serializable{
 				
 				//Redireciona para Home(Menu de Funcionalidades)			
 
+<<<<<<< HEAD
 				//Sicroniza o objeto usu���rio
 				user = (UsuarioBean) usuarioDAO.buscarPorId(UsuarioBean.class, user.getId());				
 
@@ -230,13 +230,18 @@ public class UsuarioMB implements Serializable{
 				
 				this.log = new LogBean();
 				this.tipoLog = new TipoLogBean();
+=======
+>>>>>>> 442de497daa5a0b47a10a4331bfce8c2165b293c
 				this.usuario = new UsuarioBean();
 				this.paginasPermitidas = new ArrayList<String>();
-				
 				return "/home/home";
 			}
 		}
+<<<<<<< HEAD
 		//Caso n���o encontre envia uma mensagem informando o problema		
+=======
+		//Caso n�o encontre envia uma mensagem informando o problema		
+>>>>>>> 442de497daa5a0b47a10a4331bfce8c2165b293c
 		JSFMensageiro.info("Usu�rio ou Senha Incorreta");
 		return "principal";
 	}
@@ -254,7 +259,6 @@ public class UsuarioMB implements Serializable{
 		}
 	}
 
-
 	public void carregaPaginas(UsuarioBean usuario){		
 		List<PaginaBean>paginas;		
 		for ( FuncionalidadeBean f : usuario.getPerfil().getFuncionalidades()) {
@@ -265,8 +269,6 @@ public class UsuarioMB implements Serializable{
 		}
 	}
 	
-	
-
 	public String logout() throws IOException{
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("usuario");
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("permissao");
@@ -303,8 +305,6 @@ public class UsuarioMB implements Serializable{
 		JSFMensageiro.info("Sua senha ser� enviada em instantes. Acesse seu e-mail para visualizar");
 		this.email = new String();
 		return "relembraUsario";
-
-		
 		
 	}
 	
@@ -328,25 +328,31 @@ public class UsuarioMB implements Serializable{
 	}
 
 
-
-
 	public String principal(){
 		return "principal";
 	}
 
 	public void cadastrarMulher(){
 
+<<<<<<< HEAD
 		if(isCadastrado() == true){
 			JSFMensageiro.error("O e-mail informado j� possui cadastro no sistema.");
+=======
+		if(isCadastrado()){
+			JSFMensageiro.error("O e-mail informado já possui cadastro no sistema.");
+>>>>>>> 442de497daa5a0b47a10a4331bfce8c2165b293c
 		}else{
-			
+			enderecoDAO.saveOrUpdate(this.endereco);
+
+			this.pessoa.setEndereco(endereco);				
+			pessoaDAO.saveOrUpdate(this.pessoa);
+			usuario.setPessoa(this.pessoa);
+
+			usuario.setNome(this.pessoa.getEmail());
 			usuario.setSenha(UsuarioBean.geraSenha());
 			usuario.setPerfil((PerfilBean) perfilDAO.buscarPorId(PerfilBean.class, 5));
-			usuario.setNome(this.usuario.getPessoa().getEmail());
-			enderecoDAO.saveOrUpdate(this.usuario.getPessoa().getEndereco());
-			pessoaDAO.saveOrUpdate(this.usuario.getPessoa());
-			usuarioDAO.saveOrUpdate(this.usuario);
 
+			usuarioDAO.saveOrUpdate(usuario);
 
 			Mensagem msg = new Mensagem();
 			msg.setDestino(this.usuario.getPessoa().getEmail());
@@ -355,7 +361,11 @@ public class UsuarioMB implements Serializable{
 					"\t Usu�rio: "+this.usuario.getNome()+"\n"+
 					"\t Senha: "+this.usuario.getSenha()+"\n\n" +
 					"\nImportante:\n\n" +
+<<<<<<< HEAD
 					"\t1. Ao informar o login e senha, por favor, verifique se n�o tem espa�os em branco.\n" +
+=======
+					"\t1. Ao informar o login e senha, por favor, verifique se n�o h� espa�os em branco.\n" +
+>>>>>>> 442de497daa5a0b47a10a4331bfce8c2165b293c
 					"\t2. Evite copiar e colar o login e a senha, pois este procedimento, geralmente, " +
 					"acrescenta um espa�o em branco nos dados, dificultando seu acesso." +
 					"\n\nAtenciosamente,\n\n" +
@@ -367,23 +377,20 @@ public class UsuarioMB implements Serializable{
 			JSFMensageiro.info("Seu cadastro foi realizado com sucesso! As informa��es de acesso ser�o enviadas para o e-mail cadastrado");
 
 			this.usuario = new UsuarioBean();
+			this.endereco = new EnderecoBean();
+			this.pessoa = new PessoaBean();
 		}
 
 	}
 
 	public boolean isCadastrado(){
-		List<PessoaBean> pessoas = pessoaDAO.findAll(PessoaBean.class);
-		for (PessoaBean p : pessoas) {
-			System.out.println(this.usuario.getPessoa().getEmail());
+		for (PessoaBean p : pessoaDAO.findAll(PessoaBean.class)) {
 			if(p.getEmail().equalsIgnoreCase(this.usuario.getPessoa().getEmail())){
-				pessoas = new ArrayList<PessoaBean>();
 				return true;
 			}
 		}
-		pessoas = new ArrayList<PessoaBean>();
 		return false;
 	}
-	
 	public void enviarEmail(Mensagem msg){
 		try {
 			EmailUtils.enviaEmail(msg);
@@ -439,7 +446,6 @@ public class UsuarioMB implements Serializable{
 	}
 
 
-
 	public PessoaBean getPessoa() {
 		return pessoa;
 	}
@@ -458,7 +464,8 @@ public class UsuarioMB implements Serializable{
 	public void setEndereco(EnderecoBean endereco) {
 		this.endereco = endereco;
 	}
-	
+
+
 	public void setPerfis(List<PerfilBean> perfis) {
 		this.perfis = perfis;
 	}

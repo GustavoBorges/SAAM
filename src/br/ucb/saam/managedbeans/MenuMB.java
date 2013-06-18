@@ -33,7 +33,7 @@ public class MenuMB {
 
 		//First submenu  
 		Submenu submenu = new Submenu();  
-		submenu.setLabel("");
+		submenu.setLabel("Menu");
 		
 		MenuItem item = new MenuItem();
 		try{

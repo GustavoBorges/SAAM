@@ -27,13 +27,11 @@ public class PermissaoFilter implements Filter{
 		HttpServletRequest rq = (HttpServletRequest) request;
 		HttpServletResponse rp = (HttpServletResponse) response;
 		
-		if(usuario != null){
-			
+		if(usuario != null){	
 			permissoes.add("/SAAM/home/home.xhtml");
 			for (String p: permissoes) {
 				System.out.println(p);
 			}
-			
 			if(permissoes.contains(uri)){
 				permitido = true;
 			}else{
@@ -46,7 +44,7 @@ public class PermissaoFilter implements Filter{
 				long tempoInicial = System.currentTimeMillis();
 				chain.doFilter(request, response);
 				long tempoFinal = System.currentTimeMillis();
-				System.out.println("Tempo da requisição de " +  uri + " demorou (ms): " + (tempoFinal - tempoInicial));
+				System.out.println("Tempo da requisiï¿½ï¿½o de " +  uri + " demorou (ms): " + (tempoFinal - tempoInicial));
 			
 			}catch(Exception e){
 				System.out.print(e);

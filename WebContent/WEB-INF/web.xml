@@ -31,7 +31,7 @@
 	
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
-		<param-value>flick</param-value>
+		<param-value>delta</param-value>
 	</context-param>
 	
 	<listener>
@@ -90,8 +90,6 @@
 	<filter-mapping>
 		<filter-name>Filtro de Login</filter-name>
 		<url-pattern>/atendimento/*</url-pattern>
-		<url-pattern>/atendente/*</url-pattern>
-		<url-pattern>/log/*</url-pattern>
 		<url-pattern>/perfil/*</url-pattern>
 		<url-pattern>/voluntario/*</url-pattern>
 		<url-pattern>/perguntaFrequente/*</url-pattern>
@@ -107,20 +105,16 @@
 		<filter-name>permissao</filter-name>
 		<filter-class>br.ucb.saam.util.PermissaoFilter</filter-class>
 	</filter>
-	<filter-mapping>
+		<filter-mapping>
 		<filter-name>permissao</filter-name>
 		<url-pattern>/atendimento/*</url-pattern>
-		<url-pattern>/atendente/*</url-pattern>
-		<url-pattern>/log/*</url-pattern>
 		<url-pattern>/perfil/*</url-pattern>
+		<url-pattern>/perguntaFrequente/*</url-pattern>		
 		<url-pattern>/voluntario/*</url-pattern>
-		<url-pattern>/perguntaFrequente/*</url-pattern>
 		<url-pattern>/usuario/*</url-pattern>
-		<url-pattern>/home/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
-
 	<!-- Páginas de Erro -->
 	
 	<!-- 
