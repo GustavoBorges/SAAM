@@ -12,7 +12,6 @@ public class ControllerMB implements Serializable{
 	private static final long serialVersionUID = 1L;
 	String area;
 	String urlCadastro;
-	int indexAba;
 	boolean renderFormLogin;
 	boolean renderCadastre;
 	
@@ -28,24 +27,16 @@ public class ControllerMB implements Serializable{
 		if(this.area.equals("mulher")){
 			this.renderFormLogin = true;
 			this.renderCadastre = true;
-			this.indexAba = 1;
 			this.urlCadastro = "cadastrarMulher";
 		}
 		else{
 			if(this.area.equals("voluntario")){
 				this.renderCadastre = true;
 				this.renderFormLogin = true;
-				this.indexAba = 3;
 				this.urlCadastro = "cadastrarVoluntario";
 			}else{
 				this.renderFormLogin = true;
 				this.renderCadastre = false;
-				this.indexAba = 2;
-				this.urlCadastro = null;
-			}if(this.area.equals("home")){
-				this.renderCadastre = false;
-				this.renderFormLogin = false;
-				this.indexAba = 0;
 				this.urlCadastro = null;
 			}
 				
@@ -54,14 +45,6 @@ public class ControllerMB implements Serializable{
 		
 	}
 	
-	public int getIndexAba() {
-		return indexAba;
-	}
-
-	public void setIndexAba(int indexAba) {
-		this.indexAba = indexAba;
-	}
-
 	public String voltar(){
 		return "principal";
 	}

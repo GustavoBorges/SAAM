@@ -7,33 +7,31 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/template/common/layout.xhtml">
-		<ui:param name="title" value="Enviar Mensagem" />
-		<ui:define name="content">
-
-			<h:outputText
-				value="Não existe nenhum atendente disponível no momento. Envie uma mensagem, quando algum atendente estiver disponível daremos um retorno." />
-			<br />
-			<br />
-			<br />
-
-			<h:outputText value="Digite sua Mensagem" />
-
-			<br />
-			<br />
-
-			<h:form>
-				<p:messages id="messages" autoUpdate="true" closable="true" />
-				<p:inputTextarea value="#{atendimentoMB.mensagem.texto}"
-					required="true" />
-				<br />
-				<p:commandButton value="Enviar"
-					action="#{atendimentoMB.salvarMensagem}" />
-			</h:form>
-
-
-		</ui:define>
-	</ui:composition>
+<ui:composition template="/template/common/layout.xhtml">
+	<ui:param name="title" value="Enviar Mensagem" />
+ 	<ui:define name="content">
+ 	
+ 	<h:outputText value="Não existe nenhum atendente disponível no momento. Envie uma mensagem, quando algum atendente estiver disponível daremos um retorno." /><br/>
+ 	<br/>
+ 	<br/>
+ 	
+ 	<h:outputText value="Digite sua Mensagem"/>
+ 	
+ 	<br/>
+ 	<br/>
+ 	
+ 	<h:form>
+ 		<p:messages id="messages" autoUpdate="true" closable="true"/>
+ 		
+ 		<p:inputTextarea style="width: 700px; height: 350px;" value="" required="true"/>
+ 		
+ 		<br/>
+ 		<h:commandButton class="btn btn-info" value="Enviar" />
+ 	</h:form>
+ 	
+ 	
+ </ui:define>
+</ui:composition> 
 
 </h:body>
 

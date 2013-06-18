@@ -30,7 +30,7 @@
 		<mapping class="br.ucb.saam.beans.TipoLogBean"/>
 		<mapping class="br.ucb.saam.beans.UsuarioBean"/>
 		<mapping class="br.ucb.saam.beans.VoluntarioBean"/>
-		<mapping class="br.ucb.saam.beans.PaginaBean"/>
+		<!--  <mapping class="br.ucb.saam.beans.PaginaBean"/> -->
 		
 		
 	</session-factory>

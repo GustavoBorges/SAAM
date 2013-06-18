@@ -51,23 +51,23 @@
 				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 					<p:outputLabel for="nome" value="Nome" />
 					<p:inputText id="nome" required="true"
-						value="#{usuarioMB.usuario.pessoa.nome}" />
+						value="#{usuarioMB.pessoa.nome}" />
 
 					<p:outputLabel value="E-mail" for="email"/>			
-					<p:inputText id="email" value="#{usuarioMB.usuario.pessoa.email}" size="30" maxlength="30" required="true" label="E-mail">
+					<p:inputText id="email" value="#{usuarioMB.pessoa.email}" size="30" maxlength="30" required="true" label="E-mail">
 						<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 					</p:inputText>
 
 					<p:outputLabel for="Sexo" value="Sexo" />
 					<p:selectOneMenu id="Sexo" required="true"
-						value="#{usuarioMB.usuario.pessoa.sexo}">
+						value="#{usuarioMB.pessoa.sexo}">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
 						<f:selectItem itemValue="M" itemLabel="Masculino"></f:selectItem>
 						<f:selectItem itemValue="F" itemLabel="Feminino"></f:selectItem>
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Estado Civil" />
-					<p:selectOneMenu value="#{usuarioMB.usuario.pessoa.estadoCivil}">
+					<p:selectOneMenu value="#{usuarioMB.pessoa.estadoCivil}">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
 						<f:selectItem itemValue="Solteiro" itemLabel="Solteiro(a)"></f:selectItem>
 						<f:selectItem itemValue="Casado" itemLabel="Casado(a)"></f:selectItem>
@@ -77,37 +77,37 @@
 
 					<p:outputLabel for="celular" value="Celular" />
 					<p:inputMask id="celular" required="true"
-						value="#{usuarioMB.usuario.pessoa.celular}" mask="(99) 9999-9999" />
+						value="#{usuarioMB.pessoa.celular}" mask="(99) 9999-9999" />
 
 					<p:outputLabel for="telefoneResidencial"
 						value="Telefone Residencial" />
 					<p:inputMask id="telefoneResidencial" required="true"
-						value="#{usuarioMB.usuario.pessoa.telefoneResidencial}"
+						value="#{usuarioMB.pessoa.telefoneResidencial}"
 						mask="(99) 9999 - 9999" />
 
 					<p:outputLabel value="Telefone Comercial" />
-					<p:inputMask value="#{usuarioMB.usuario.pessoa.telefoneComercial}"
+					<p:inputMask value="#{usuarioMB.pessoa.telefoneComercial}"
 						mask="(99) 9999 - 9999" />
 
 					<p:outputLabel for="logradouro" value="Logradouro" />
 					<p:inputText id="logradouro" required="true"
-						value="#{usuarioMB.usuario.pessoa.endereco.logradouro}" />
+						value="#{usuarioMB.endereco.logradouro}" />
 
 					<p:outputLabel for="bairro" value="Bairro" />
 					<p:inputText id="bairro" required="true"
-						value="#{usuarioMB.usuario.pessoa.endereco.bairro}" />
+						value="#{usuarioMB.endereco.bairro}" />
 
 					<p:outputLabel for="cidade" value="Cidade" />
 					<p:inputText id="cidade" required="true"
-						value="#{usuarioMB.usuario.pessoa.endereco.cidade}" />
+						value="#{usuarioMB.endereco.cidade}" />
 
 					<p:outputLabel for="cep" value="CEP" />
 					<p:inputText id="cep" required="true"
-						value="#{usuarioMB.usuario.pessoa.endereco.cep}" />
+						value="#{usuarioMB.endereco.cep}" />
 
 					<p:outputLabel for="estado" value="Estado" />
 					<p:selectOneMenu id="estado" required="true"
-						value="#{usuarioMB.usuario.pessoa.endereco.estado}">
+						value="#{usuarioMB.endereco.estado}">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
 						<f:selectItem itemValue="AC" itemLabel="Acre"></f:selectItem>
 						<f:selectItem itemValue="AL" itemLabel="Alagoas"></f:selectItem>
@@ -140,7 +140,7 @@
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Pais" />
-					<p:inputText value="#{usuarioMB.usuario.pessoa.endereco.pais}" />
+					<p:inputText value="#{usuarioMB.endereco.pais}" />
 				</h:panelGrid>
 			</p:fieldset>
 			<br/>

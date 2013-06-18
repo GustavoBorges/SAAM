@@ -28,11 +28,6 @@ public class PermissaoFilter implements Filter{
 		HttpServletResponse rp = (HttpServletResponse) response;
 		
 		if(usuario != null){
-			
-			for (String p: permissoes) {
-				System.out.println(p);
-			}
-			
 			if(permissoes.contains(uri)){
 				permitido = true;
 			}else{

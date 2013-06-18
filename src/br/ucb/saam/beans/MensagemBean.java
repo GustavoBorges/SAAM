@@ -11,8 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/** Classe para objetos do tipo Mensagem, onde serão contidos, valores e métodos para o mesmo.
- *  Representa as mensagens enviadas por usuários.
+/** Classe para objetos do tipo Mensagem, onde serï¿½o contidos, valores e mï¿½todos para o mesmo.
+ *  Representa as mensagens enviadas por usuï¿½rios.
  *  
  * @author William Barreto
  * @version 1.0
@@ -31,7 +31,7 @@ public class MensagemBean implements Serializable{
 	@Column(name="COD_MENSAGEM")
 	private int id;
 	
-	@Column(name="DATA_CRIACAO")
+	@Column(name="DATA")
 	private Date data;
 	
 	@Column(name="TEXTO")

@@ -7,105 +7,87 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-
 <h:body>
-
-	<ui:composition template="/template/common/layout.xhtml">
 	
-		<ui:define name="menu">
-
-		</ui:define>
-		<ui:define name="content">
-			<h:form>
-				
-				<p:tabMenu activeIndex="#{controllerMB.indexAba}">
-					<p:menuitem>
-						<h:commandLink value="Home" action="#{controllerMB.apresentarArea}">
-							<f:setPropertyActionListener target="#{controllerMB.area}"
-								value="home" />
-						</h:commandLink>
-					</p:menuitem>
-					<p:menuitem>
-						<h:commandLink value="Area da Mulher"
-							action="#{controllerMB.apresentarArea}">
-							<f:setPropertyActionListener target="#{controllerMB.area}"
-								value="mulher" />
-						</h:commandLink>
-					</p:menuitem>
-					<p:menuitem>
-						<h:commandLink value="Area Administrativa"
-							action="#{controllerMB.apresentarArea}">
-							<f:setPropertyActionListener target="#{controllerMB.area}"
-								value="administrativa" />
-						</h:commandLink>
-					</p:menuitem>
-					<p:menuitem>
-						<h:commandLink value="Area do Voluntário"
-							action="#{controllerMB.apresentarArea}">
-							<f:setPropertyActionListener target="#{controllerMB.area}"
-								value="voluntario" />
-						</h:commandLink>
-					</p:menuitem>
-				</p:tabMenu>
-			</h:form>
-
-
-			<p:panel>
-			<div>
-
-				<h3>
-					<h:outputText redered="#{controllerMB.renderFormLogin}"
-						value="#{controllerMB.area == 'mulher'?'Area da Mulher':(controllerMB.area == 'administrativa' ? 'Area Administrativa':(controllerMB.area == 'voluntario'?'Area do Voluntario':''))}" />
-				</h3>
-				<br />
-
-
-
-				<h:form>
-					<h:commandButton class="btn btn-small btn-danger"
-						rendered="#{controllerMB.area == 'mulher' ? true:false}"
-						value="Cadastre-se" action="#{controllerMB.cadastrarMulher}" />
-					<h:commandButton class="btn btn-small btn-danger"
-						rendered="#{controllerMB.area == 'voluntario'? true:false}"
-						value="Cadastre-se" action="#{controllerMB.cadastrarVoluntario}" />
-				</h:form>
-
-
-				<h:form id="formulario" rendered="#{controllerMB.renderFormLogin}">
-					<p:messages id="messages" autoUpdate="true" closable="true" />
-					<div>
-						<h:panelGrid id="grid">
-
-							<p:outputLabel for="usuario" value="Usuário" />
-							<p:inputText id="usuario" value="#{usuarioMB.usuario.nome}"
-								required="true" requiredMessage="Usuário : Campo obrigátorio" />
-
-
-							<p:outputLabel for="senha" value="Senha" />
-							<p:password id="senha" value="#{usuarioMB.usuario.senha}"
-								required="true" requiredMessage="Senha : Campo obrigátorio" />
-							<br />
-
-							<h:commandButton class="btn btn-small btn-success"
-								style="text-align:right;" value="Acessar"
-								action="#{usuarioMB.login}" />
-						</h:panelGrid>
+	<ui:composition template="/template/common/layout.xhtml">
+    		<ui:param name="title" value="Login"/>
+    		<ui:define name="menu">
+    			
+    		
+    		
+				<div>
+	      			
+	      			<h:form>
+					<div class="">
+						<ul class="nav nav-pills nav-stacked">
+							 <li class="active">
+								<a href="#">Home</a>
+								</li>
+							<li>
+								<h:commandLink value="Area da Mulher" action="#{controllerMB.apresentarArea}">
+								 	<f:setPropertyActionListener target="#{controllerMB.area}" value="mulher"/>  
+								</h:commandLink>
+							</li>
+							<li>
+								<h:commandLink value="Area Administrativa" action="#{controllerMB.apresentarArea}">
+							 		<f:setPropertyActionListener target="#{controllerMB.area}" value="administrativa"/>  
+								</h:commandLink>
+							</li>
+							
+							<li>
+						
+								<h:commandLink value="Area do Voluntario" action="#{controllerMB.apresentarArea}">
+							 		<f:setPropertyActionListener target="#{controllerMB.area}" value="voluntario"/>  
+								</h:commandLink>
+							</li>
+						</ul>
 					</div>
-				</h:form>
+					</h:form>
+					    			
+    			</div>
+    			</ui:define>
+				
+				<ui:define name="content">
+    			
+    			<div>
+    					
+	    			<h3><h:outputText redered="#{controllerMB.renderFormLogin}" value="#{controllerMB.area == 'mulher'?'Area da Mulher':(controllerMB.area == 'administrativa' ? 'Area Administrativa':(controllerMB.area == 'voluntario'?'Area do Voluntario':''))}"/></h3>
+					<br/>
 
-				<h:form>
-					<h:commandButton class="btn btn-small btn-info"
-						rendered="#{controllerMB.area == 'mulher' ? true:false}"
-						value="Acessar Anônimo" action="#{usuarioMB.loginAnonimo}" />
-				</h:form>
 
-				<h:form rendered="#{controllerMB.renderFormLogin}">
-					<h:commandLink value="Esqueceu sua senha?"
-						action="#{usuarioMB.relembraSenha}" />
-				</h:form>
-			</div>
-			</p:panel>
-		</ui:define>
-	</ui:composition>
+					
+					<h:form>
+						<h:commandButton class="btn btn-small btn-danger" rendered="#{controllerMB.area == 'mulher' ? true:false}" value="Cadastre-se" action="#{controllerMB.cadastrarMulher}"/>
+						<h:commandButton class="btn btn-small btn-danger" rendered="#{controllerMB.area == 'voluntario'? true:false}" value="Cadastre-se" action="#{controllerMB.cadastrarVoluntario}"/>
+					</h:form>
+
+
+      				<h:form id="formulario" rendered="#{controllerMB.renderFormLogin}">
+						<p:messages id="messages" autoUpdate="true" closable="true"/>
+						<div>
+							<h:panelGrid id="grid">
+
+								<p:outputLabel for="usuario" value="Usuário"/>
+								<p:inputText id="usuario" value="#{usuarioMB.usuario.nome}" required="true" requiredMessage="Usuário : Campo obrigátorio"/>
+
+						
+								<p:outputLabel for="senha" value="Senha"/>
+								<p:password id="senha" value="#{usuarioMB.usuario.senha}" required="true" requiredMessage="Senha : Campo obrigátorio"/> <br/>
+														
+								<h:commandButton class="btn btn-small btn-success" style="text-align:right;" value="Entrar" action="#{usuarioMB.login}"/>
+							</h:panelGrid>
+						</div>
+					</h:form>
+					
+					<h:form>
+						<h:commandButton class="btn btn-small btn-info" rendered="#{controllerMB.area == 'mulher' ? true:false}" value="Entrar Anônimo" action="#{usuarioMB.loginAnonimo}"/>
+					</h:form>
+					
+					<h:form rendered="#{controllerMB.renderFormLogin}">
+						<h:commandLink  value="Esqueceu sua senha?" action="#{usuarioMB.relembraSenha}"/>
+					</h:form>
+    			</div>
+	</ui:define>
+</ui:composition>
 </h:body>
 </html>

@@ -7,27 +7,26 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/template/common/layout.xhtml">
-		<ui:param name="title" value="Solicitar Atendimento" />
-		<ui:define name="content">
-			<h:form>
-				<p:messages id="mgs" autoUpdate="true" closable="true" />
+<ui:composition template="/template/common/layout.xhtml">
+	<ui:param name="title" value="Solicitar Atendimento" />
+ 	<ui:define name="content">
 
-				<p:outputLabel for="options" value="Selecione a area que deseja atendimento" />
-				
-				<p:selectOneRadio id="options" required="true" value="#{atendimentoMB.area}" layout="pageDirection">
-					<f:selectItems value="#{atendimentoMB.areas}" var="area"
-						itemLabel="&nbsp;#{area.nome}" itemValue="#{area}" style="padding:5px;" />
-				</p:selectOneRadio>
+ 	
+	 	<h:form>
+	 		<p:messages id="mgs" autoUpdate="true" closable="true"/>
+	 		<h:panelGrid style="margin-bottom:10px" cellpadding="5">
+	 	 		<p:outputLabel for="options" value="Selecione a area que deseja atendimento"/>
+	 	 		<p:selectOneRadio id="options" required="true" value="#{atendimentoMB.area}" layout="pageDirection">  
+		          <f:selectItems value="#{atendimentoMB.areas}" var="area" itemLabel="&nbsp;#{area.nome}" style="padding:5px;" /> 
+		        </p:selectOneRadio>
+		        
+		        <p:commandButton action="#{atendimentoMB.solicitarAtendimento}" icon="ui-icon-circle-check" value="Continuar" styleClass="btn btn-small btn-inverse"/>
+	        </h:panelGrid>
+	 	</h:form>
+ 	
 
-				<p:commandButton action="#{atendimentoMB.solicitarAtendimento}"
-					value="Continuar" />
-
-			</h:form>
-
-
-		</ui:define>
-	</ui:composition>
+ </ui:define>
+</ui:composition>
 
 </h:body>
 
