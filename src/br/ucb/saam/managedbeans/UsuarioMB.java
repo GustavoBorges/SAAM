@@ -92,7 +92,6 @@ public class UsuarioMB implements Serializable{
 		this.tipoLogDao = new TipoLogDAO();
 		this.log = new LogBean();
 		this.tipoLog = new TipoLogBean();
-
 	}
 
 
@@ -100,6 +99,7 @@ public class UsuarioMB implements Serializable{
 
 	//Manter Usuario
 	public String index(){
+		this.usuario = new UsuarioBean();
 		this.usuarios = new ArrayList<UsuarioBean>();
 		this.resultado = new ArrayList<UsuarioBean>();
 		this.usuarios = this.usuarioDAO.findAll(UsuarioBean.class);
@@ -139,7 +139,7 @@ public class UsuarioMB implements Serializable{
 
 	public String edit(){
 		this.perfis = new PerfilDAO().findAll(PerfilBean.class);
-		return  "new";
+		return  "edit";
 	}
 
 	//Manter atendentes
@@ -174,7 +174,7 @@ public class UsuarioMB implements Serializable{
 	}
 
 
-	/**Metodo para buscar todos os usuï¿½rio cadastrados no banco de dados
+	/**Metodo para buscar todos os usuï¿½ï¿½ï¿½rio cadastrados no banco de dados
 	 * 
 	 * @return ArrayList<UsuarioBean>
 	 */
@@ -182,27 +182,27 @@ public class UsuarioMB implements Serializable{
 		return this.usuarios = this.usuarioDAO.findAll(UsuarioBean.class);
 	}
 
-	/**Metodo para autenticar o usuï¿½rio no sistema.
+	/**Metodo para autenticar o usuï¿½ï¿½ï¿½rio no sistema.
 	 *  
-	 * @return String - Pï¿½gina que serï¿½ redirecionada.
+	 * @return String - Pï¿½ï¿½ï¿½gina que serï¿½ï¿½ï¿½ redirecionada.
 	 */
 	public String login(){
 
-		//Busca a lista de usuários gravados no banco de dados
+		//Busca a lista de usuï¿½rios gravados no banco de dados
 		//getListUsuarios();
 		
 		this.usuarios = usuarioDAO.findAll(UsuarioBean.class);
 
-		//Percorre a lista de usuï¿½rios		
+		//Percorre a lista de usuï¿½ï¿½ï¿½rios		
 		for (UsuarioBean user : usuarios) {	
 
-			//Compara se o usuário informado é igual ao da vez
+			//Compara se o usuï¿½rio informado ï¿½ igual ao da vez
 			if(user.equals(this.usuario)){
 
-				//Sicroniza o objeto usuário
+				//Sicroniza o objeto usuï¿½rio
 				user = (UsuarioBean) usuarioDAO.buscarPorId(UsuarioBean.class, user.getId());
 				
-				//Adiciona o usuário na Sessão
+				//Adiciona o usuï¿½rio na Sessï¿½o
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", user);
 				carregaPaginas(user);
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("permissao", this.paginasPermitidas);
@@ -210,10 +210,10 @@ public class UsuarioMB implements Serializable{
 				
 				//Redireciona para Home(Menu de Funcionalidades)			
 
-				//Sicroniza o objeto usuï¿½rio
+				//Sicroniza o objeto usuï¿½ï¿½ï¿½rio
 				user = (UsuarioBean) usuarioDAO.buscarPorId(UsuarioBean.class, user.getId());				
 
-				//Adiciona o usuï¿½rio na Sessão
+				//Adiciona o usuï¿½ï¿½ï¿½rio na Sessï¿½o
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", user);
 
 				isAtendente(user);
@@ -222,7 +222,7 @@ public class UsuarioMB implements Serializable{
 				this.tipoLog = (TipoLogBean) tipoLogDao.buscarPorId(TipoLogBean.class, 1);
 				
 				log.setData(new Date(System.currentTimeMillis()));
-				log.setMensagem("O usuário"+this.usuario.getNome()+" entrou no sistema");
+				log.setMensagem("O usuï¿½rio"+this.usuario.getNome()+" entrou no sistema");
 				log.setUsuario(user);
 				log.setTipoLog(tipoLog);
 				
@@ -236,13 +236,13 @@ public class UsuarioMB implements Serializable{
 				return "/home/home";
 			}
 		}
-		//Caso nï¿½o encontre envia uma mensagem informando o problema		
-		JSFMensageiro.info("Usuário ou Senha Incorreta");
+		//Caso nï¿½ï¿½ï¿½o encontre envia uma mensagem informando o problema		
+		JSFMensageiro.info("Usuï¿½rio ou Senha Incorreta");
 		return "principal";
 	}
 
 	/**
-	 * Metodo para verificar se o usuï¿½rio ï¿½ atendente. Caso seja atendente adiciona a area do atendente na sua sessï¿½o
+	 * Metodo para verificar se o usuï¿½ï¿½ï¿½rio ï¿½ï¿½ï¿½ atendente. Caso seja atendente adiciona a area do atendente na sua sessï¿½ï¿½ï¿½o
 	 * @param usuario
 	 */
 
@@ -287,11 +287,11 @@ public class UsuarioMB implements Serializable{
 
 				mensagem.setDestino(user.getPessoa().getEmail());
 				mensagem.setTitulo("Credencias de Acesso - SAAM");
-				mensagem.setMensagem("Prezado(a) "+user.getPessoa().getNome()+",\n\nConforme solicitado seguem informaï¿½ï¿½es de acesso:\n\nUsuario: "+user.getNome()+"\nSenha: "+user.getSenha()+" \n\nAtenciosamente,\n\n Associaï¿½ï¿½o das Mulheres Empreendedoras.");
+				mensagem.setMensagem("Prezado(a) "+user.getPessoa().getNome()+",\n\nConforme solicitado seguem informaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½es de acesso:\n\nUsuario: "+user.getNome()+"\nSenha: "+user.getSenha()+" \n\nAtenciosamente,\n\n Associaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½o das Mulheres Empreendedoras.");
 
 				try {
 					EmailUtils.enviaEmail(mensagem);
-					JSFMensageiro.info("Sua senha serï¿½ enviada em instantes. Acesse seu e-mail para visualizar");
+					JSFMensageiro.info("Sua senha serï¿½ï¿½ï¿½ enviada em instantes. Acesse seu e-mail para visualizar");
 					this.email = new String();
 				} catch (EmailException ex){
 					System.out.println("Erro! Ocorreu um erro ao enviar a mensagem"+ex);
@@ -300,7 +300,7 @@ public class UsuarioMB implements Serializable{
 				return "relembraSenha";
 			}
 		}
-		JSFMensageiro.info("Sua senha será enviada em instantes. Acesse seu e-mail para visualizar");
+		JSFMensageiro.info("Sua senha serï¿½ enviada em instantes. Acesse seu e-mail para visualizar");
 		this.email = new String();
 		return "relembraUsario";
 
@@ -310,7 +310,7 @@ public class UsuarioMB implements Serializable{
 	
 	public String loginAnonimo(){
 		
-		this.pessoa.setNome("Usuário Anônimo");
+		this.pessoa.setNome("Usuï¿½rio Anï¿½nimo");
 		this.usuario.setPessoa(pessoa);
 		this.usuario.setNome("anonimo");
 		this.usuario.setSenha("");
@@ -337,7 +337,7 @@ public class UsuarioMB implements Serializable{
 	public void cadastrarMulher(){
 
 		if(isCadastrado() == true){
-			JSFMensageiro.error("O e-mail informado já possui cadastro no sistema.");
+			JSFMensageiro.error("O e-mail informado jï¿½ possui cadastro no sistema.");
 		}else{
 			
 			usuario.setSenha(UsuarioBean.geraSenha());
@@ -351,20 +351,20 @@ public class UsuarioMB implements Serializable{
 			Mensagem msg = new Mensagem();
 			msg.setDestino(this.usuario.getPessoa().getEmail());
 			msg.setMensagem("Prezado(a) "+this.usuario.getPessoa().getNome()+", \n\n" +
-					"Para ter acesso aos atendimentos, utilize as seguintes informações: \n\n" +
-					"\t Usuário: "+this.usuario.getNome()+"\n"+
+					"Para ter acesso aos atendimentos, utilize as seguintes informaï¿½ï¿½es: \n\n" +
+					"\t Usuï¿½rio: "+this.usuario.getNome()+"\n"+
 					"\t Senha: "+this.usuario.getSenha()+"\n\n" +
 					"\nImportante:\n\n" +
-					"\t1. Ao informar o login e senha, por favor, verifique se não tem espaços em branco.\n" +
+					"\t1. Ao informar o login e senha, por favor, verifique se nï¿½o tem espaï¿½os em branco.\n" +
 					"\t2. Evite copiar e colar o login e a senha, pois este procedimento, geralmente, " +
-					"acrescenta um espaço em branco nos dados, dificultando seu acesso." +
+					"acrescenta um espaï¿½o em branco nos dados, dificultando seu acesso." +
 					"\n\nAtenciosamente,\n\n" +
-					"\nAssociação de Mulheres Empreendedoras.");
+					"\nAssociaï¿½ï¿½o de Mulheres Empreendedoras.");
 
 			msg.setTitulo("Cadastro - SAAM");
 
 			enviarEmail(msg);				
-			JSFMensageiro.info("Seu cadastro foi realizado com sucesso! As informações de acesso serão enviadas para o e-mail cadastrado");
+			JSFMensageiro.info("Seu cadastro foi realizado com sucesso! As informaï¿½ï¿½es de acesso serï¿½o enviadas para o e-mail cadastrado");
 
 			this.usuario = new UsuarioBean();
 		}

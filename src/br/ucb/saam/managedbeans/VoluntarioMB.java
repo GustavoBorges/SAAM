@@ -48,7 +48,7 @@ public class VoluntarioMB implements Serializable{
 		new EnderecoDAO().saveOrUpdate(voluntario.getEndereco());
 		voluntario.setSituacao(false);
 		voluntarioDAO.saveOrUpdate(voluntario);
-		enviaEmail(voluntario.getEmail(),"Cadastro"," Usuario,\n Estamos testando o envio de e-mail da aplica��o saam.\n \nAtenciosamente,\n \n Equipe SAAM.");
+		enviaEmail(voluntario.getEmail(),"Cadastro"," Usuario,\n Estamos testando o envio de e-mail da aplica������o saam.\n \nAtenciosamente,\n \n Equipe SAAM.");
 		voluntario = new VoluntarioBean();
 		return "sucess";
 	}

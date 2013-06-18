@@ -35,8 +35,8 @@
 							value="#{usuarioMB.usuario.nome}" />
 
 						<p:outputLabel for="senha" value="Senha " />
-						<p:password id="senha" require="true"
-							value="#{usuarioMB.usuario.senha}" accesskey="true"/>
+						<p:inputText id="senha" require="true"
+							value="#{usuarioMB.usuario.senha}"/>
 
 						<p:outputLabel value="E-mail" for="email" />
 						<p:inputText id="email" value="#{usuarioMB.usuario.pessoa.email}"

@@ -22,11 +22,12 @@
 		Nome de usuario:
 		<h:outputText value="#{usuarioMB.usuario.nome}" />
 		
+		
 		E-mail:
 		<h:outputText value="#{usuarioMB.usuario.pessoa.email}" />
 		
 		Sexo:
-		<h:outputText value="#{usuarioMB.usuario.pessoa.sexo}" />
+		<h:outputText value="#{usuarioMB.usuario.pessoa.sexo == 'M' ? Masculino : Feminino}" />
 		
 		Estado Civil:
 		<h:outputText value="#{usuarioMB.usuario.pessoa.estadoCivil}" />

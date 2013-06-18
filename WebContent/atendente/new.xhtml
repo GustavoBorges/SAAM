@@ -24,7 +24,7 @@
 
 						<p:outputLabel for="perfil" value="Area de Atendimento" />
 						<p:selectOneMenu id="perfil" value="#{usuarioMB.voluntario.area}"
-							effect="fade" converter="areaConverter" required="true">
+							effect="fade" required="true">
 							<f:selectItem itemLabel="Selecione" itemValue=" "
 								noSelectionOption="true" />
 							<f:selectItems value="#{usuarioMB.areas}" var="item"

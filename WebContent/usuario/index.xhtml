@@ -47,7 +47,7 @@
 
 					<p:column>
 						<p:commandLink id="delete" value="Excluir"
-							onclick="confirmation.show()" type="button" styleClass="btn">
+							onclick="confirmation.show()" type="button" styleClass="btn btn-danger">
 							<f:setPropertyActionListener value="#{item}"
 								target="#{usuarioMB.usuario}" />
 						</p:commandLink>
@@ -67,7 +67,7 @@
 				</p:confirmDialog>
 				<br />
 				<h:commandLink value="Incluir" action="#{usuarioMB.novo}"
-					styleClass="btn" />
+					styleClass="btn btn-success" />
 			</h:form>
 		</ui:define>
 	</ui:composition>
